@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Legal — DapUp</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,900&family=DM+Sans:wght@400;500&display=swap');
+
+  :root {
+    --lime: #D0FF00;
+    --purple: #7C238C;
+    --lavender: #E2A9F1;
+    --black: #0A0A0A;
+    --offwhite: #F8F8F8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background-color: var(--black);
+    color: var(--offwhite);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  header {
+    background-color: var(--black);
+    border-bottom: 2px solid var(--lime);
+    padding: 24px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  header .logo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-style: italic;
+    font-weight: 900;
+    font-size: 2rem;
+    color: var(--lime);
+    text-decoration: none;
+  }
+
+  header .tagline {
+    font-size: 0.8rem;
+    color: var(--lavender);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .hero {
+    background: linear-gradient(135deg, var(--purple) 0%, #3d0a47 100%);
+    padding: 50px 40px 0;
+    position: relative;
+  }
+
+  .hero h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-style: italic;
+    font-weight: 900;
+    font-size: clamp(3rem, 8vw, 5rem);
+    color: var(--lime);
+    line-height: 0.95;
+    letter-spacing: -1px;
+    margin-bottom: 32px;
+  }
+
+  .tabs {
+    display: flex;
+    gap: 4px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .tab-btn {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-style: italic;
+    font-weight: 900;
+    font-size: 1.2rem;
+    letter-spacing: 0.02em;
+    padding: 14px 36px;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px 8px 0 0;
+    transition: all 0.2s;
+    background: rgba(255,255,255,0.08);
+    color: rgba(248,248,248,0.5);
+  }
+
+  .tab-btn.active {
+    background: var(--black);
+    color: var(--lime);
+  }
+
+  .tab-bar-line {
+    height: 2px;
+    background: var(--lime);
+  }
+
+  .container {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 56px 40px 80px;
+  }
+
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+
+  .meta-line {
+    font-size: 0.78rem;
+    color: var(--lavender);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+  }
+
+  .intro {
+    background: rgba(124, 35, 140, 0.15);
+    border-left: 4px solid var(--lime);
+    padding: 22px 26px;
+    margin-bottom: 44px;
+    border-radius: 0 8px 8px 0;
+  }
+
+  .intro p { color: var(--offwhite); margin-bottom: 0; }
+
+  section { margin-bottom: 44px; }
+
+  h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-style: italic;
+    font-weight: 900;
+    font-size: 1.75rem;
+    color: var(--lime);
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(208,255,0,0.2);
+  }
+
+  h3 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    font-size: 0.85rem;
+    color: var(--lavender);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin: 22px 0 8px;
+  }
+
+  p { color: rgba(248,248,248,0.85); margin-bottom: 12px; }
+
+  ul, ol { padding-left: 20px; margin-bottom: 12px; }
+
+  li {
+    color: rgba(248,248,248,0.85);
+    margin-bottom: 7px;
+    padding-left: 4px;
+  }
+
+  li::marker { color: var(--lime); }
+
+  .highlight-box {
+    background: rgba(208,255,0,0.05);
+    border: 1px solid rgba(208,255,0,0.2);
+    border-radius: 8px;
+    padding: 18px 22px;
+    margin: 16px 0;
+  }
+
+  .founder-section {
+    background: rgba(124,35,140,0.15);
+    border: 1px solid var(--purple);
+    border-radius: 10px;
+    padding: 24px;
+    margin-top: 8px;
+  }
+
+  .contact-block {
+    background: var(--purple);
+    border-radius: 10px;
+    padding: 28px;
+    margin-top: 8px;
+  }
+
+  .contact-block p { color: var(--offwhite); margin-bottom: 6px; }
+  .contact-block a { color: var(--lime); text-decoration: none; font-weight: 500; }
+  .contact-block a:hover { text-decoration: underline; }
+
+  a { color: var(--lime); }
+
+  footer {
+    background: #050505;
+    border-top: 2px solid var(--lime);
+    padding: 24px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  footer p { font-size: 0.78rem; color: rgba(248,248,248,0.35); margin: 0; }
+  footer a { color: var(--lime); text-decoration: none; font-size: 0.78rem; }
+  footer a:hover { text-decoration: underline; }
+
+  @media (max-width: 600px) {
+    header { padding: 18px 20px; }
+    .hero { padding: 36px 20px 0; }
+    .container { padding: 36px 20px 60px; }
+    footer { padding: 20px; flex-direction: column; align-items: flex-start; }
+    .tab-btn { padding: 12px 24px; font-size: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="https://dapup.app" class="logo">DapUp</a>
+  <span class="tagline">The New Hello</span>
+</header>
+
+<div class="hero">
+  <h1>Legal</h1>
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showTab('privacy')">Privacy Policy</button>
+    <button class="tab-btn" onclick="showTab('terms')">Terms &amp; Conditions</button>
+  </div>
+</div>
+<div class="tab-bar-line"></div>
+
+<div class="container">
+
+  <!-- ============ PRIVACY POLICY ============ -->
+  <div class="tab-content active" id="privacy">
+
+    <div class="meta-line">
+      <span>Effective Date: June 2, 2025</span>
+      <span>Last Updated: May 2026</span>
+      <span>DapUp Corp. — New York, United States</span>
+    </div>
+
+    <div class="intro">
+      <p>DapUp Corp. ("DapUp", "Company", "we", "us", or "our") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and protect your information when you use our mobile application ("DapUp" or the "App"), website, and related services (collectively, the "Services").</p>
+    </div>
+
+    <p>By accessing or using DapUp, you acknowledge that you have read and understood this Privacy Policy and consent to the data practices described herein.</p>
+
+    <section>
+      <h2>1. Information We Collect</h2>
+      <p>We collect several types of information to provide and improve our Services:</p>
+      <h3>A. Information You Provide to Us Directly</h3>
+      <ul>
+        <li><strong>Account Information:</strong> When you register, we collect your name, phone number, email address, gender (optional), date of birth, profile photo, and bio.</li>
+        <li><strong>Contact Information:</strong> With your explicit permission, we collect your device's contact list to enable mutual contact discovery features.</li>
+        <li><strong>User Content:</strong> This includes messages, photos, media, and other content submitted through your profile or conversations.</li>
+        <li><strong>Feedback and Support Requests:</strong> When you reach out to our support team, we collect the content of your communication and contact details.</li>
+      </ul>
+      <h3>B. Information We Collect Automatically</h3>
+      <ul>
+        <li><strong>Location Data:</strong> We collect precise geolocation (via GPS, Wi-Fi, and cell towers) to enable discovery features and suggest connections near you. Location tracking only occurs with your opt-in consent.</li>
+        <li><strong>Device and Usage Data:</strong> Includes device type, operating system, unique device identifiers, IP address, mobile network information, app version, language settings, screen interactions, session lengths, and crash logs.</li>
+        <li><strong>Log and Event Data:</strong> When you interact with the App, we log user activity (e.g., profile views, swipes, time online) for analytics and abuse prevention.</li>
+        <li><strong>Cookies and Tracking Technologies:</strong> While DapUp is mobile-first, web-based elements may use cookies or similar tools to remember preferences and understand aggregate usage.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>2. How We Use Your Information</h2>
+      <ul>
+        <li><strong>To operate and maintain the App:</strong> Including account setup, mutual discovery, profile visibility, and messaging features.</li>
+        <li><strong>To personalize your experience:</strong> Including suggesting people you may know, location-based interactions, and optimizing user feed.</li>
+        <li><strong>To communicate with you:</strong> Service updates, security alerts, account issues, and customer service replies.</li>
+        <li><strong>To monitor and improve the App:</strong> Usage analysis, testing new features, and preventing bugs or outages.</li>
+        <li><strong>To ensure safety and security:</strong> Including user report processing, spam detection, abuse prevention, and enforcement of our Terms of Use.</li>
+        <li><strong>To comply with legal obligations:</strong> Including fraud prevention, responding to lawful requests, and enforcing contractual rights.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>3. Sharing and Disclosure of Your Information</h2>
+      <p>We do not sell your personal data. We share information only as necessary:</p>
+      <h3>A. With Service Providers and Partners</h3>
+      <p>We engage third-party service providers under strict confidentiality terms to perform functions such as cloud hosting, analytics, push notifications, customer support, and payment processing.</p>
+      <h3>B. With Other Users</h3>
+      <p>Basic profile data (name, photo, age, bio) is visible to others during mutual contact discovery or connection requests. Messages are shared between users only upon connection, and we do not retain or access messages post-delivery if end-to-end encryption is enabled.</p>
+      <h3>C. For Legal or Safety Reasons</h3>
+      <ul>
+        <li>To comply with laws, regulations, or legal processes (e.g., subpoenas).</li>
+        <li>To enforce our Terms and Conditions.</li>
+        <li>To protect the rights, property, or safety of DapUp, its users, or the public.</li>
+      </ul>
+      <h3>D. In Business Transfers</h3>
+      <p>If DapUp undergoes a merger, acquisition, or sale of assets, your information may be transferred as part of that transaction. You will be notified of any material changes in ownership or use.</p>
+      <h3>E. SMS Messaging &amp; Opt-In Data</h3>
+      <p>Personal information collected for the purpose of SMS messaging (including your phone number and opt-in consent) will not be shared, sold, or traded with third parties or affiliates for marketing or promotional purposes. This excludes text messaging originator opt-in data and consent; this information will not be shared with any third parties.</p>
+    </section>
+
+    <section>
+      <h2>4. Founder Network Feature — Disclosure and Consent</h2>
+      <p>DapUp offers an optional feature that enables new users to establish a direct network connection with the Company's co-founders, Jake Cameron and Brian Eddelson (collectively, the "Founders"), upon first use of the App. This section describes how that feature works and the data practices associated with it.</p>
+      <div class="founder-section">
+        <h3>A. How the Feature Works</h3>
+        <p>When you elect to use the "DapUp with Jake and Brian" feature within the App, the following actions occur automatically and server-side upon your affirmative tap of the designated button:</p>
+        <ul>
+          <li>A friend connection request is submitted on your behalf to each Founder's account (user IDs 574 and 620) and is immediately accepted by the DapUp system.</li>
+          <li>A group messaging thread is created containing your account and both Founders' accounts.</li>
+          <li>Automated welcome messages authored by each Founder are inserted into that group thread on their behalf at the time of group creation.</li>
+          <li>You are navigated directly into the group messaging thread within the App.</li>
+        </ul>
+        <p>This feature is entirely voluntary. You must affirmatively tap the "DapUp with Jake and Brian" button to initiate it. No connection is made without your explicit action.</p>
+        <h3>B. Data Collected and Used</h3>
+        <p>In connection with this feature, DapUp processes the following data:</p>
+        <ul>
+          <li>Your user account identifier, authentication token, and session credentials, solely to authenticate and execute the connection.</li>
+          <li>Your account profile information, which becomes visible to the Founders' accounts as part of the established connection, consistent with standard connection visibility described in Section 3(B).</li>
+          <li>Group messaging data, including the group thread identifier, member list, and message content, which is stored on DapUp's servers consistent with the data retention practices described in Section 6.</li>
+        </ul>
+        <h3>C. Founder Account Disclaimer</h3>
+        <p>Jake Cameron and Brian Eddelson are individual users of DapUp who also serve as co-founders and officers of DapUp Corp. Their accounts are operated in both a personal and representative capacity. By initiating the founder connection feature, you acknowledge that:</p>
+        <ul>
+          <li>The Founders' accounts are managed by or on behalf of actual individuals who may view your profile and group messages consistent with standard DapUp connection permissions.</li>
+          <li>The Founders do not guarantee any response, engagement, or business relationship resulting from this connection.</li>
+          <li>Any communications occurring within the group thread are subject to DapUp's standard messaging terms, Community Guidelines, and applicable law.</li>
+          <li>DapUp Corp. is not liable for any expectation of personal communication, networking outcome, or business opportunity arising from use of this feature.</li>
+        </ul>
+        <h3>D. Removing the Connection</h3>
+        <p>You may remove your connection with either or both Founders at any time using the standard connection management features of the App, consistent with your rights under Section 4(A). Removal of the connection does not retroactively delete prior group messages, which remain subject to the data retention policy in Section 6.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>5. Your Rights and Choices</h2>
+      <h3>A. Account Controls</h3>
+      <p>You can edit your profile, manage location and contact access permissions via device settings, enable or disable discovery and visibility settings, and deactivate or delete your account in the App.</p>
+      <h3>B. Communications</h3>
+      <p>You can opt-out of SMS communications at any time by replying STOP to any message you receive from us, or through your app settings.</p>
+      <h3>C. CCPA (California Consumer Privacy Act) Rights</h3>
+      <div class="highlight-box">
+        <p>If you reside in California, you have the right to know what personal information we collect, use, and share; access your data and request a portable copy; request deletion of your personal information; and opt-out of data sales (DapUp does not sell user data). To exercise these rights, email: <a href="mailto:privacy@dapup.app">privacy@dapup.app</a>. We will respond within 45 days.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>6. Data Security</h2>
+      <ul>
+        <li>Data is encrypted in transit (TLS) and at rest.</li>
+        <li>Access to personal data is limited to authorized personnel.</li>
+        <li>Our infrastructure is regularly tested for vulnerabilities.</li>
+        <li>We employ device-level safeguards to prevent unauthorized access.</li>
+      </ul>
+      <p>No system is completely secure. You are advised to protect your credentials and report suspicious activity promptly.</p>
+    </section>
+
+    <section>
+      <h2>7. Data Retention</h2>
+      <p>We retain your information as long as your account is active; for a reasonable period after deletion (30–60 days) for backup, legal, or fraud-prevention purposes; and as required by law. You may request data deletion via the in-app delete option or by emailing us.</p>
+    </section>
+
+    <section>
+      <h2>8. Children's Privacy</h2>
+      <p>DapUp is not directed to children under 13 and we do not knowingly collect personal data from anyone under 18. If we become aware that a user is under 18, we will delete their account and all associated data.</p>
+    </section>
+
+    <section>
+      <h2>9. International Data Transfers</h2>
+      <p>Although DapUp is U.S.-based, users from other countries may access the App. If you use DapUp from outside the United States, you consent to transferring your data to and being governed by U.S. data laws, which may differ from your country's regulations.</p>
+    </section>
+
+    <section>
+      <h2>10. Do Not Track (DNT) Signals</h2>
+      <p>We currently do not respond to DNT browser signals, as there is no universal standard for this setting.</p>
+    </section>
+
+    <section>
+      <h2>11. Changes to This Privacy Policy</h2>
+      <p>We may update this Privacy Policy from time to time. If material changes are made, we will notify you through the App or by email. Continued use of the App after updates constitutes your acceptance.</p>
+    </section>
+
+    <section>
+      <h2>12. Contact Us</h2>
+      <div class="contact-block">
+        <p>If you have questions or concerns about this Privacy Policy or your data rights, please contact:</p>
+        <p>Email: <a href="mailto:Contact@dapup.app">Contact@dapup.app</a></p>
+        <p>Privacy inquiries: <a href="mailto:privacy@dapup.app">privacy@dapup.app</a></p>
+        <p style="margin-bottom:0;">DapUp Corp., New York, United States</p>
+      </div>
+    </section>
+
+    <p style="margin-top:40px; font-size:0.85rem; color:rgba(248,248,248,0.35);">© 2026 DapUp Corp. All rights reserved.</p>
+  </div>
+
+  <!-- ============ TERMS ============ -->
+  <div class="tab-content" id="terms">
+
+    <div class="meta-line">
+      <span>Effective Date: June 2, 2025</span>
+      <span>Last Updated: May 2026</span>
+      <span>Jurisdiction: United States (State of New York)</span>
+    </div>
+
+    <div class="intro">
+      <p>These Terms and Conditions ("Terms") govern your access to and use of the DapUp mobile application and related services ("App" or "Service"), owned and operated by DapUp Corp. ("Company," "we," "our," or "us"). By registering, accessing, or using the App, you agree to these Terms and our Privacy Policy. If you do not agree, do not use the App.</p>
+    </div>
+
+    <section>
+      <h2>1. Eligibility and User Requirements</h2>
+      <ul>
+        <li>You must be at least 18 years of age to create an account.</li>
+        <li>You represent that you have the legal capacity to enter into this agreement under applicable law.</li>
+        <li>Users under any restriction from using digital networking platforms are not permitted to use DapUp.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>2. Account Registration and Security</h2>
+      <ul>
+        <li>You agree to provide accurate, current, and complete information during registration.</li>
+        <li>You are solely responsible for maintaining the confidentiality of your login credentials.</li>
+        <li>You must immediately notify us of any unauthorized use of your account.</li>
+        <li>DapUp reserves the right to suspend or terminate your account for any reason, including breach of these Terms or suspected fraudulent behavior.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>3. Use of the App</h2>
+      <p>DapUp facilitates networking connections through discovery of nearby users who share mutual contacts (based on address book permissions) and are in geographic proximity. Features may include, but are not limited to: discovery notifications when mutual contacts are nearby; sending and receiving connection requests; messaging post-connection; and managing privacy and visibility settings.</p>
+      <p>You agree to use the app only for lawful and personal purposes, interact respectfully with other users, and not use the platform to harass, stalk, defame, or harm others.</p>
+    </section>
+
+    <section>
+      <h2>4. User Content and Conduct</h2>
+      <p>You are solely responsible for any content you post, share, or transmit through DapUp, including text, images, or other media. You agree not to upload, distribute, or publish through the App any content that is unlawful, defamatory, obscene, offensive, promotes hate, violates intellectual property or privacy rights, or contains malware or unsolicited promotions. We reserve the right to remove content or suspend accounts that violate these standards.</p>
+    </section>
+
+    <section>
+      <h2>5. Privacy and Data Use</h2>
+      <p>Your use of the App is subject to our Privacy Policy, which governs how we collect, use, store, and share your personal data. By using the App, you acknowledge and agree to share location data for discovery functionality, allow access to contact lists for mutual connection logic, and permit data usage for personalization, analytics, and security.</p>
+    </section>
+
+    <section>
+      <h2>6. Founder Network Feature — Terms of Use and Limitation of Liability</h2>
+      <p>The App includes an optional feature that allows new users to establish a direct connection with DapUp's co-founders, Jake Cameron and Brian Eddelson (collectively, the "Founders"). The following terms apply specifically to this feature.</p>
+      <div class="founder-section">
+        <h3>A. Voluntary Initiation and Informed Consent</h3>
+        <p>The Founder Network Feature is activated solely by your affirmative action — specifically, by tapping the "DapUp with Jake and Brian" button displayed within the App. By tapping this button, you expressly acknowledge and consent to the following:</p>
+        <ul>
+          <li>A mutual connection (friendship) is automatically established between your account and each Founder's account on the DapUp platform.</li>
+          <li>A group messaging thread is created containing your account and both Founders' accounts.</li>
+          <li>Pre-authored welcome messages are automatically sent on behalf of each Founder into the group thread at the time of group creation.</li>
+          <li>Your profile information becomes visible to the Founders' accounts consistent with standard DapUp connection permissions.</li>
+          <li>You are navigated directly into the group messaging thread within the App upon successful completion of the above actions.</li>
+        </ul>
+        <p>This feature is presented once per account upon initial use of the App. Once activated, it will not be presented again. You may remove the connection with either or both Founders at any time using standard App connection management tools.</p>
+        <h3>B. Nature of the Founder Accounts</h3>
+        <p>The Founders' accounts are operated by Jake Cameron and Brian Eddelson as individuals who are also officers of DapUp Corp. By using this feature, you acknowledge that:</p>
+        <ul>
+          <li>The Founders are real individuals whose accounts may receive and view connection requests and messages.</li>
+          <li>The Founders do not guarantee any personal response, communication, or business engagement resulting from the connection.</li>
+          <li>Any expectation of a personal relationship, business opportunity, or preferential treatment arising from this connection is expressly disclaimed.</li>
+          <li>Automated messages sent on behalf of the Founders are pre-authored informational communications and do not constitute legal representations, warranties, or binding commitments by the Founders or DapUp Corp.</li>
+        </ul>
+        <h3>C. Limitation of Liability — Founder Feature</h3>
+        <p>To the maximum extent permitted by applicable law:</p>
+        <ul>
+          <li>DapUp Corp., Jake Cameron, and Brian Eddelson shall not be individually or collectively liable for any claim, loss, or damages arising from a user's use of or reliance upon the Founder Network Feature.</li>
+          <li>Neither Founder assumes personal liability for any content exchanged, connections made, or outcomes resulting from the group thread created by this feature.</li>
+          <li>The automated actions taken upon activation of this feature (friend connection, group creation, welcome messages) are performed by the DapUp platform on a technical basis. They do not constitute personal conduct or endorsement by either Founder in their individual capacity.</li>
+          <li>DapUp Corp. is the responsible party for all platform operations related to this feature, including data handling, automated messaging, and system behavior.</li>
+        </ul>
+        <h3>D. Removal and Account Management</h3>
+        <p>You may disconnect from either or both Founders at any time using the App's standard connection management features. Removal does not retroactively delete prior messages from the group thread. Continued access to the group thread after removal is subject to the App's standard group messaging terms.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>7. Subscription Services and Payment</h2>
+      <ul>
+        <li>Certain features of DapUp may be available through paid subscriptions or one-time purchases.</li>
+        <li>Payments are processed securely via third-party providers (e.g., Stripe or Apple/Google Pay).</li>
+        <li>Subscriptions automatically renew unless canceled at least 24 hours before the end of the current billing period.</li>
+        <li>No refunds are provided for unused periods, except where required by law.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>8. Intellectual Property</h2>
+      <p>All content, branding, features, and functionality of the App are the exclusive property of DapUp Corp. or its licensors. You are granted a limited, non-exclusive, non-transferable, and revocable license to use the App for personal, non-commercial purposes only.</p>
+    </section>
+
+    <section>
+      <h2>9. Third-Party Services and Links</h2>
+      <p>The App may include links to or integrations with third-party services. We are not responsible for the content, terms, or policies of any third-party services. Your interaction with such services is governed by their respective terms.</p>
+    </section>
+
+    <section>
+      <h2>10. Disclaimer of Warranties</h2>
+      <div class="highlight-box">
+        <p style="margin-bottom:0;">To the fullest extent permitted by law, the App is provided "as is" and "as available," without warranties of any kind. We do not warrant that the App will be uninterrupted, secure, or error-free. No advice or information obtained through the App shall create any warranty.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>11. Limitation of Liability</h2>
+      <div class="highlight-box">
+        <p style="margin-bottom:0;">To the maximum extent permitted under applicable law, DapUp Corp. shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including loss of data, loss of goodwill, or lost opportunities, even if advised of the possibility. Our total liability arising out of your use of the App shall not exceed the amount you paid to us in the past 12 months (if any).</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>12. Indemnification</h2>
+      <p>You agree to defend, indemnify, and hold harmless DapUp Corp. and its affiliates, officers, directors, employees, and agents (including the Founders in their capacity as officers of DapUp Corp.) from any claims, losses, damages, liabilities, and expenses (including legal fees) arising from your violation of these Terms, use or misuse of the App, or violation of any law or rights of a third party.</p>
+    </section>
+
+    <section>
+      <h2>13. Termination</h2>
+      <p>We may suspend or terminate your access at any time, without notice, if you violate these Terms, your behavior presents risk or legal exposure, or as required by applicable law. You may also delete your account at any time via the App settings.</p>
+    </section>
+
+    <section>
+      <h2>14. Arbitration and Dispute Resolution</h2>
+      <p>All disputes arising out of these Terms shall be resolved by binding arbitration in accordance with the rules of the American Arbitration Association (AAA). Arbitration shall be conducted in New York, and judgment on the arbitration award may be entered in any court of competent jurisdiction. You waive your right to a jury trial and any class action proceeding.</p>
+    </section>
+
+    <section>
+      <h2>15. Governing Law</h2>
+      <p>These Terms are governed by and construed in accordance with the laws of the State of New York, without regard to conflict of law principles.</p>
+    </section>
+
+    <section>
+      <h2>16. Changes to Terms</h2>
+      <p>We may update these Terms from time to time. If we make material changes, we will notify you via the App or by email. Continued use of the App after such updates constitutes your acceptance of the revised Terms.</p>
+    </section>
+
+    <section>
+      <h2>17. SMS Messaging Program Terms</h2>
+      <div class="highlight-box">
+        <p style="margin-bottom:0;"><strong>Program Name: DapUp Alerts.</strong> DapUp sends transactional SMS for account security (One-Time Passwords) and real-time notifications for nearby mutual connections and chat messages. Message frequency varies by user activity. Message and data rates may apply. To opt out, text "STOP" to our number at any time. For help, reply "HELP" or contact <a href="mailto:Contact@dapup.app">Contact@dapup.app</a>. Carriers are not liable for delayed or undelivered messages.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>18. Contact Information</h2>
+      <div class="contact-block">
+        <p>If you have questions about these Terms, contact us at:</p>
+        <p>General: <a href="mailto:Contact@dapup.app">Contact@dapup.app</a></p>
+        <p style="margin-bottom:0;">DapUp Corp., New York, United States</p>
+      </div>
+    </section>
+
+    <p style="margin-top:40px; font-size:0.85rem; color:rgba(248,248,248,0.35);">© 2026 DapUp Corp. All rights reserved.</p>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2026 DapUp Corp. All rights reserved.</p>
+  <div style="display:flex;gap:24px;">
+    <a href="/legal.html">Privacy Policy</a>
+    <a href="/legal.html#terms" onclick="showTab('terms')">Terms of Service</a>
+  </div>
+</footer>
+
+<script>
+  function showTab(tab) {
+    document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+    document.getElementById(tab).classList.add('active');
+    document.querySelectorAll('.tab-btn')[tab === 'privacy' ? 0 : 1].classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // Handle direct links to #terms
+  if (window.location.hash === '#terms') showTab('terms');
+</script>
+
+</body>
+</html>
