@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Join DapUp</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,900&family=DM+Sans:wght@400;500&display=swap');
+  :root{--lime:#D0FF00;--purple:#7C238C;--lavender:#E2A9F1;--black:#0A0A0A;--offwhite:#F8F8F8;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--black);color:var(--offwhite);font-family:'DM Sans',sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 24px;text-align:center;}
+  .logo{font-family:'Barlow Condensed',sans-serif;font-style:italic;font-weight:900;font-size:3rem;color:var(--lime);letter-spacing:-1px;margin-bottom:8px;}
+  .tagline{font-size:0.85rem;color:var(--lavender);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:48px;}
+  h1{font-family:'Barlow Condensed',sans-serif;font-style:italic;font-weight:900;font-size:clamp(2.4rem,8vw,4rem);color:var(--offwhite);line-height:0.95;letter-spacing:-1px;margin-bottom:20px;max-width:480px;}
+  h1 span{color:var(--lime);}
+  p.desc{font-size:1rem;color:rgba(248,248,248,0.65);line-height:1.7;max-width:360px;margin-bottom:40px;}
+  .buttons{display:flex;flex-direction:column;gap:14px;width:100%;max-width:300px;margin-bottom:40px;}
+  .btn-primary{background:var(--lime);color:var(--black);font-family:'DM Sans',sans-serif;font-weight:500;font-size:1rem;padding:16px 24px;border-radius:50px;text-decoration:none;transition:opacity 0.2s;}
+  .btn-primary:hover{opacity:0.88;}
+  .btn-secondary{background:transparent;color:var(--offwhite);font-family:'DM Sans',sans-serif;font-weight:400;font-size:1rem;padding:16px 24px;border-radius:50px;text-decoration:none;border:1px solid rgba(248,248,248,0.2);transition:border-color 0.2s;}
+  .btn-secondary:hover{border-color:rgba(248,248,248,0.5);}
+  .divider{width:48px;height:2px;background:var(--purple);margin:0 auto 32px;}
+  .how{max-width:360px;text-align:left;}
+  .how h2{font-size:0.78rem;color:var(--lavender);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:16px;}
+  .step{display:flex;align-items:flex-start;gap:14px;margin-bottom:16px;}
+  .step-num{width:24px;height:24px;border-radius:50%;background:var(--purple);color:var(--lavender);font-size:0.75rem;font-weight:500;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
+  .step p{font-size:0.9rem;color:rgba(248,248,248,0.75);line-height:1.5;}
+  footer{margin-top:56px;font-size:0.75rem;color:rgba(248,248,248,0.25);}
+</style>
+</head>
+<body>
+<div class="logo">DapUp</div>
+<div class="tagline">The New Hello</div>
+<h1>Meet the people<br>you <span>should already</span><br>know.</h1>
+<p class="desc">DapUp notifies you when someone nearby shares a mutual contact. The introduction you've been waiting for is already one degree away.</p>
+<div class="buttons">
+  <a class="btn-primary" href="https://apps.apple.com/us/app/dapup/id6745735586" id="ios-btn">Download on iPhone</a>
+  <a class="btn-secondary" href="https://play.google.com/store/apps/details?id=com.arure.dapup" id="android-btn">Download on Android</a>
+</div>
+<div class="divider"></div>
+<div class="how">
+  <h2>How it works</h2>
+  <div class="step"><div class="step-num">1</div><p>Download DapUp and create your account in under a minute.</p></div>
+  <div class="step"><div class="step-num">2</div><p>Grant contacts and location access so DapUp can find your people nearby.</p></div>
+  <div class="step"><div class="step-num">3</div><p>When someone nearby shares a mutual contact with you, you both get notified. That's your cue.</p></div>
+</div>
+<footer>© 2026 DapUp Corp. · <a href="/legal.html" style="color:inherit;">Privacy & Terms</a></footer>
+<script>
+  const ua=navigator.userAgent;
+  const isAndroid=/android/i.test(ua);
+  if(isAndroid){
+    const ios=document.getElementById('ios-btn');
+    const android=document.getElementById('android-btn');
+    android.className='btn-primary';
+    ios.className='btn-secondary';
+    android.parentNode.insertBefore(android,ios);
+  }
+</script>
+</body>
+</html>
