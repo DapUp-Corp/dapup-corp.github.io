@@ -214,9 +214,7 @@
 
   .hero-phone {
     width: 220px;
-    border-radius: 32px;
-    overflow: hidden;
-    box-shadow: 0 30px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.08);
+    filter: drop-shadow(0 30px 60px rgba(0,0,0,0.6));
     transition: transform 0.3s;
   }
 
@@ -339,12 +337,32 @@
     max-width: 320px;
     margin: 0 auto;
     display: block;
-    border-radius: 32px;
-    overflow: hidden;
-    box-shadow: 0 40px 100px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.07);
+    filter: drop-shadow(0 40px 60px rgba(0,0,0,0.7));
   }
 
   .feature-phone img { width: 100%; display: block; }
+
+  /* Light + Midnight side by side */
+  .phone-pair {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1rem;
+    max-width: 460px;
+    margin: 0 auto;
+  }
+  .phone-pair figure { flex: 1; margin: 0; filter: drop-shadow(0 40px 60px rgba(0,0,0,0.7)); }
+  .phone-pair figure:nth-child(2) { margin-top: 2.5rem; }
+  .phone-pair img { width: 100%; display: block; }
+  .phone-pair figcaption {
+    text-align: center;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(248,248,248,0.5);
+    margin-top: 0.75rem;
+  }
 
   .feature-tags {
     display: flex;
@@ -546,6 +564,8 @@
     .nav-links { display: none; }
     .hero-phones { flex-direction: column; align-items: center; }
     .hero-phone { width: 75vw !important; transform: none !important; }
+    .hero-phone:not(:nth-child(2)) { display: none; }
+    .phone-pair { max-width: 92vw; }
     .hero-phone:hover { transform: translateY(-4px) !important; }
     .features-grid, .features-grid.reverse, .about-inner {
       grid-template-columns: 1fr;
@@ -589,13 +609,13 @@
 
   <div class="hero-phones">
     <div class="hero-phone">
-      <img src="2.png" alt="DapUp splash screen" onerror="this.style.background='#1a1a1a';this.style.aspectRatio='9/19'">
+      <img src="img/look-whos-here-light.webp" alt="Look Who's Here screen in Light mode" width="640" height="1266" onerror="this.style.background='#1a1a1a';this.style.aspectRatio='9/19'">
     </div>
     <div class="hero-phone">
-      <img src="3.png" alt="Who's Around screen" onerror="this.style.background='#1a1a1a';this.style.aspectRatio='9/19'">
+      <img src="img/whos-around-midnight.webp" alt="Who's Around screen in Midnight mode" width="640" height="1266" onerror="this.style.background='#1a1a1a';this.style.aspectRatio='9/19'">
     </div>
     <div class="hero-phone">
-      <img src="5.png" alt="Notifications screen" onerror="this.style.background='#1a1a1a';this.style.aspectRatio='9/19'">
+      <img src="img/notifications-light.webp" alt="Notifications screen in Light mode" width="640" height="1266" onerror="this.style.background='#1a1a1a';this.style.aspectRatio='9/19'">
     </div>
   </div>
 </section>
@@ -606,7 +626,7 @@
     <div class="how-inner">
       <div class="how-header reveal">
         <p class="section-label">How it works</p>
-        <h2 class="section-headline">Three taps.<br><span>Real connections.</span></h2>
+        <h2 class="section-headline">Four steps.<br><span>Real connections.</span></h2>
       </div>
       <div class="steps">
         <div class="step reveal">
@@ -637,8 +657,9 @@
 <!-- FEATURES -->
 <section id="features" style="padding-top: 3rem;">
   <div class="features-grid reveal" style="max-width:1100px;margin:0 auto 6rem;">
-    <div class="feature-phone">
-      <img src="3.png" alt="Who's Around feature" onerror="this.style.background='#1a1a1a';this.style.minHeight='500px'">
+    <div class="phone-pair">
+      <figure><img src="img/whos-around-light.webp" alt="Who's Around in Light mode" width="640" height="1266"><figcaption>Light</figcaption></figure>
+      <figure><img src="img/whos-around-midnight.webp" alt="Who's Around in Midnight mode" width="640" height="1266"><figcaption>Midnight</figcaption></figure>
     </div>
     <div>
       <p class="section-label">Who's Around?</p>
@@ -648,13 +669,15 @@
         <span class="tag">Proximity detection</span>
         <span class="tag">Mutual contacts</span>
         <span class="tag">Adjustable range</span>
+          <span class="tag">Light &amp; Midnight</span>
       </div>
     </div>
   </div>
 
   <div class="features-grid reverse reveal" style="max-width:1100px;margin:0 auto 6rem;">
-    <div class="feature-phone">
-      <img src="5.png" alt="Notifications feature" onerror="this.style.background='#1a1a1a';this.style.minHeight='500px'">
+    <div class="phone-pair">
+      <figure><img src="img/notifications-light.webp" alt="Notifications in Light mode" width="640" height="1266"><figcaption>Light</figcaption></figure>
+      <figure><img src="img/notifications-midnight.webp" alt="Notifications in Midnight mode" width="640" height="1266"><figcaption>Midnight</figcaption></figure>
     </div>
     <div>
       <p class="section-label">Smart Notifications</p>
@@ -668,21 +691,38 @@
     </div>
   </div>
 
-  <div class="features-grid reveal" style="max-width:1100px;margin:0 auto;">
-    <div class="feature-phone">
-      <img src="1.png" alt="Chat feature" onerror="this.style.background='#1a1a1a';this.style.minHeight='500px'">
-    </div>
-    <div>
-      <p class="section-label">Intentional Messaging</p>
-      <h2 class="section-headline">DapUp isn't<br><span>fleeting.</span></h2>
-      <p class="section-body">Once connected, message one-on-one or start a group chat. DapUp connections are built on trust and mutual context — not random swipes. These are conversations that go somewhere.</p>
-      <div class="feature-tags">
-        <span class="tag">Direct messaging</span>
-        <span class="tag">Group chats</span>
-        <span class="tag">Voice messages</span>
+  <div class="features-grid reveal" style="max-width:1100px;margin:0 auto 6rem;">
+      <div class="feature-phone">
+        <img src="img/look-whos-here-light.webp" alt="Look Who's Here screen" width="640" height="1266">
+      </div>
+      <div>
+        <p class="section-label">Look Who's Here</p>
+        <h2 class="section-headline">Your people are<br><span>already here.</span></h2>
+        <p class="section-body">The moment you join, DapUp shows who you already know on the app &mdash; and how many people are one introduction away. No empty feed. No cold start.</p>
+        <div class="feature-tags">
+          <span class="tag">People you know</span>
+          <span class="tag">One intro away</span>
+          <span class="tag">Invite &amp; earn DapPoints</span>
+        </div>
       </div>
     </div>
-  </div>
+
+    <div class="features-grid reverse reveal" style="max-width:1100px;margin:0 auto;">
+      <div class="phone-pair">
+      <figure><img src="img/profile-light.webp" alt="Profile in Light mode" width="640" height="1266"><figcaption>Light</figcaption></figure>
+      <figure><img src="img/profile-midnight.webp" alt="Profile in Midnight mode" width="640" height="1266"><figcaption>Midnight</figcaption></figure>
+    </div>
+      <div>
+        <p class="section-label">Profiles &amp; Messaging</p>
+        <h2 class="section-headline">Context before<br><span>contact.</span></h2>
+        <p class="section-body">Every profile shows what someone does, who they trust, and an opener DapUp writes for you. Once you're connected, message one-on-one or start a group chat &mdash; conversations built on mutual context, not random swipes.</p>
+        <div class="feature-tags">
+          <span class="tag">Trusted connections</span>
+          <span class="tag">Conversation starters</span>
+          <span class="tag">Direct &amp; group chats</span>
+        </div>
+      </div>
+    </div>
 </section>
 
 <!-- DOWNLOAD -->
